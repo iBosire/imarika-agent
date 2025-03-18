@@ -1,6 +1,6 @@
-# R1 Distill RAG System
+# Farmer Assistance Agent
 
-This project showcases the power of DeepSeek's R1 model in an agentic RAG (Retrieval-Augmented Generation) system - built using Smolagents from HuggingFace. R1, known for its exceptional reasoning capabilities and instruction-following abilities, serves as the core reasoning engine. The system combines R1's strengths with efficient document retrieval and a separate conversation model to create a powerful, context-aware question-answering system.
+This project uses local language models to create an assistant to answer questions based on a vector database from csvs.
 
 ## Setup
 
@@ -76,13 +76,13 @@ Feel free to experiment with other models or context window sizes by modifying t
 
 ## Usage
 
-1. Place your PDF documents in the `data` directory:
+1. Place your CSV documents in the `data` directory:
 ```bash
 mkdir data
-# Copy your PDFs into the data directory
+# Copy your CSVs into the data directory
 ```
 
-2. Ingest the PDFs to create the vector database:
+2. Ingest the CSVs to create the vector database:
 ```bash
 python ingest_pdfs.py
 ```
@@ -97,7 +97,7 @@ This will launch a Gradio web interface where you can ask questions about your d
 ## How It Works
 
 1. **Document Ingestion** (`ingest_pdfs.py`):
-   - Loads PDFs from the `data` directory
+   - Loads CSVs from the `data` directory
    - Splits documents into chunks of 1000 characters with 200 character overlap
    - Creates embeddings using `sentence-transformers/all-mpnet-base-v2`
    - Stores vectors in a Chroma database
